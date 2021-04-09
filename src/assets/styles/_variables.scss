@@ -1,0 +1,121 @@
+$cerise: #f1218d;
+.cerise {
+  color: $cerise;
+}
+$golden-grass: #e09923;
+$persian-green: #00b0a2;
+$shakespeare: #51a0cb;
+$yellow-green: #7ed321;
+
+$widget-background: rgba(255, 255, 255, 0.1);
+$cod: #141414;
+$dove: #737373;
+$mercury: #e7e7e7;
+$tundora: #4b4b4b;
+
+.shakespeare {
+  color: $shakespeare;
+}
+.cod {
+  color: $cod;
+}
+.dove {
+  color: $dove;
+}
+.mercury {
+  color: $mercury;
+}
+.tundora {
+  color: $tundora;
+}
+
+$border-radius: 0.8em;
+
+$breakpoint-xs: 312px;
+$breakpoint-s: 640px;
+$breakpoint-m: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xlg: 1280px;
+
+$sizes: (
+  1: 0.5em,
+  2: 1em,
+  3: 1.5em,
+  4: 2em,
+  5: 3em,
+  6: 4em,
+  10: 0.3em
+);
+$directions: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right
+);
+
+@each $sizeKey, $sizeValue in $sizes {
+  @each $directionKey, $directionValue in $directions {
+    .m#{$directionKey}-#{$sizeKey} {
+      margin-#{$directionValue}: $sizeValue;
+    }
+    .m-#{$sizeKey} {
+      margin: $sizeValue;
+    }
+    .p#{$directionKey}-#{$sizeKey} {
+      padding-#{$directionValue}: $sizeValue;
+    }
+    .p-#{$sizeKey} {
+      padding: $sizeValue;
+    }
+  }
+}
+
+$bezier-1: all 0.5s cubic-bezier(0.04, 0.96, 0.33, 1);
+$bezier-curve: cubic-bezier(0.04, 0.96, 0.33, 1);
+
+/*
+* MAGENTA STYLING
+*/
+
+//App size
+$app-width: 1920px;
+$app-height: 1080px;
+$app-margin: 0 auto;
+$app-padding: 72px 104px 72px 103px;
+
+//Content container size
+$container-width: 1713px;
+$container-height: 936px;
+
+//Content size
+$content-width: 1425px;
+$content-height: 936px;
+
+//Router content
+$router-content-height: 650px;
+
+//Navigation bar lef
+$nav-bar-width: 216px;
+$nav-bar-margin-right: 72px;
+$nav-bar-item-margin: 0px 22px 50px 0px;
+$nav-bar-item-margin-left: 22px;
+$nav-bar-item-margin-top: 10px;
+
+$magenta-color: #e20074;
+$magenta-header-color: white;
+
+.magenta {
+  color: $magenta-color;
+}
+
+/*
+* Widget sizes
+*/
+
+//Small
+$widget-width-small: 272px;
+$widget-height-small: 272px;
+
+//Medium
+$widget-width-medium: 272px;
+$widget-height-medium: 272px;

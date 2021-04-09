@@ -1,0 +1,258 @@
+@import "./fonts";
+@import "./reset";
+@import "./variables";
+
+* {
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+html,
+body {
+  overflow: hidden;
+  color: white;
+  background-image: url("~@/assets/images/background.svg");
+  background-size: cover;
+  font-size: 19px;
+  letter-spacing: 0px;
+  line-height: 1.4em;
+  font-family: "TeleNeoWeb Medium", sans-serif;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  // text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+body.no-scroll {
+  margin: 0;
+  height: 100px;
+  overflow: hidden;
+  position: fixed !important;
+}
+
+h2 {
+  color: $magenta-header-color;
+  font-size: 3em;
+  line-height: 1em;
+  font-family: $teleneo-extrabold;
+}
+
+h3 {
+  color: $magenta-header-color;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  font-family: $teleneo-bold;
+}
+
+h4 {
+  color: $magenta-header-color;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: $teleneo-bold;
+}
+
+.fl-aic {
+  display: flex;
+  align-items: center;
+}
+.fl-v-aic {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+}
+.fl-v-aic-jcc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.in-fl-alc {
+  display: inline-flex;
+  align-items: center;
+}
+
+.fl {
+  display: flex;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.fl-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fl-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.widget {
+  padding: 1.7em;
+  position: relative;
+}
+
+.tile {
+  background-color: $widget-background;
+  border-radius: $border-radius;
+  width: $widget-width-small;
+  height: $widget-height-small;
+  overflow: hidden;
+
+  &:focus {
+    box-shadow: 0px 0px 2px 5px $magenta-color;
+  }
+}
+
+.interactive-tile {
+  background-color: $widget-background;
+  border-radius: $border-radius;
+  width: $widget-width-medium;
+  height: $widget-height-medium;
+  overflow: hidden;
+
+  &:focus {
+    background-color: $mercury;
+
+    h2,
+    h3 {
+      color: $cod;
+    }
+  }
+}
+
+.feed-item {
+  background-color: $cod;
+  border-radius: $border-radius;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2em;
+
+  &:focus {
+    box-shadow: 0px 0px 2px 5px $tundora;
+  }
+}
+
+.dt-icon {
+  fill: white;
+  width: 2em;
+}
+.dt-icon {
+  position: relative;
+  width: 2em;
+  padding: 1em 0em;
+}
+.navigation-icon {
+  position: relative;
+  &:focus {
+    .dt-icon {
+      border-radius: 50%;
+      padding: 1em;
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 4em;
+      fill: $mercury;
+    }
+
+    .notification-indicator {
+      display: none;
+    }
+  }
+  .notification-indicator {
+    display: block;
+    position: absolute;
+    top: 30%;
+    right: -1px;
+    transform: translateY(-50%);
+    border: 4px solid $cod;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $cerise;
+  }
+}
+
+.primary-button {
+  border-radius: 10px;
+  padding: 1em 1.5em;
+  background-color: rgba(255, 255, 255, 0.322);
+  color: white;
+  font-family: $teleneo-medium;
+  outline: none;
+  border: 0;
+  font-size: 1em;
+
+  &:focus {
+    background-color: white;
+    color: white;
+  }
+}
+
+.modal-header {
+  margin-left: 3rem;
+  padding-top: 1rem;
+}
+
+.app-sizing {
+  width: $app-width;
+  max-width: $app-width;
+  height: $app-height;
+  max-height: $app-height;
+  margin: $app-margin;
+  padding: $app-padding;
+}
+
+//Widget design setup
+
+.widget-sub-title {
+  display: inline;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: 2.4px;
+}
+
+.widget-description {
+  text-align: center;
+  font-family: $teleneo-thin;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+}
+
+.widget-icon {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.widget-title {
+  font-family: $teleneo-thin;
+  font-size: 30px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 3px;
+}

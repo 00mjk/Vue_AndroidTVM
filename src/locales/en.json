@@ -1,0 +1,21 @@
+{
+  "common": {
+    "close": "Close"
+  },
+  "widgetdashboard": {
+    "widget-section-title": "Widgets",
+    "scene-section-title": "Scenes",
+    "devices-section-title": "Devices",
+    "explore-section-title": "Explorer"
+  },
+  "feed": {
+    "title": "Feed"
+  },
+  "navigation": {
+    "home": "Home",
+    "current": "Current",
+    "stories": "Stories",
+    "equipment": "Equipment",
+    "discover": "Discover"
+  }
+}

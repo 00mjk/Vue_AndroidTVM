@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 65 65">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(-762 -81) translate(762 81)">
+                <circle cx="32.4" cy="32.4" r="32.4" fill="#FFF" fill-opacity=".1"/>
+                <text fill="#FCFCFC" font-family="TeleNeo-Medium, TeleNeo" font-size="30" font-weight="400">
+                    <tspan x="17" y="44">+2</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

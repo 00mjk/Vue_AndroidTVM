@@ -1,0 +1,89 @@
+{
+  "name": "poc-dogtracker-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --port 8081",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@mdi/font": "^3.9.97",
+    "@mdi/js": "^5.9.55",
+    "@web-types/vuetify": "^2.0.15-1",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "go-qrcode": "^1.0.4",
+    "hyperid": "^2.1.0",
+    "lorem-ipsum": "^2.0.3",
+    "moment": "^2.29.1",
+    "timeago.js": "^4.0.2",
+    "v-wave": "^1.2.8",
+    "vue": "^2.6.11",
+    "vue-axios": "^3.2.0",
+    "vue-class-component": "^7.2.3",
+    "vue-i18n": "^8.24.2",
+    "vue-js-spatial-navigation": "^2.0.13",
+    "vue-polling": "^0.1.14",
+    "vue-property-decorator": "^9.1.2",
+    "vue-responsive-components": "^0.2.3",
+    "vue-router": "^3.2.0",
+    "vuetify": "^2.4.8",
+    "vuex": "^3.6.2",
+    "vuex-class": "^0.3.2",
+    "vuex-module-decorators": "^1.0.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@types/node": "^12.19.9",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "deepmerge": "^4.2.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
+    "prettier": "^1.19.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^8.0.2",
+    "typescript": "^3.9.7",
+    "vue-cli-plugin-vuetify": "~2.0.8",
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0",
+    "vuex-module-decorators": "^1.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

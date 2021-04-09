@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+  <path fill="none" d="M0 0H64V64H0z"/>
+  <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="31.9975" y1="4" x2="31.9975" y2="60">
+    <stop offset="0" stop-color="#262626"/>
+    <stop offset=".9921" stop-color="#262626"/>
+  </linearGradient>
+  <path fill="url(#a)" d="M60,32C60,16.5,47.5,4,32,4S4,16.5,4,32c0,0.1,0,0.2,0,0.3V56c0,2.2,1.8,4,4,4h48c2.2,0,4-1.8,4-4 L60,32L60,32z"/>
+  <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="31.995" y1="49.0003" x2="31.995" y2="15">
+    <stop offset=".0021" stop-color="#262626"/>
+    <stop offset="1" stop-color="#4b4b4b"/>
+  </linearGradient>
+  <circle fill="url(#b)" cx="32" cy="32" r="17"/>
+  <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="31.995" y1="49.0002" x2="31.995" y2="15">
+    <stop offset=".0199" stop-color="#55565a"/>
+    <stop offset="1" stop-color="#808083"/>
+  </linearGradient>
+  <path opacity=".6" fill="url(#c)" d="M32,18c7.7,0,14,6.3,14,14s-6.3,14-14,14s-14-6.3-14-14S24.3,18,32,18 M32,15 c-9.4,0-17,7.6-17,17s7.6,17,17,17c9.4,0,17-7.6,17-17S41.4,15,32,15L32,15z"/>
+  <linearGradient id="d" gradientUnits="userSpaceOnUse" x1="31.9986" y1="76" x2="31.9986" y2="4">
+    <stop offset="0" stop-color="#55565a"/>
+    <stop offset="1" stop-color="#808083"/>
+  </linearGradient>
+  <path fill="url(#d)" d="M55.7,39.8C52.4,49.8,43,57,32,57c-11,0-20.4-7.2-23.7-17.1l-2.3,2.3l0,0 c1.8,4.5,4.6,11.4,8.3,17.8h35.5c3.7-6.4,6.6-13.3,8.3-17.8L55.7,39.8z"/>
+  <linearGradient id="e" gradientUnits="userSpaceOnUse" x1="31.998" y1="76.0002" x2="31.998" y2="4.0001">
+    <stop offset="0" stop-color="#55565a"/>
+    <stop offset="1" stop-color="#808083"/>
+  </linearGradient>
+  <path fill="url(#e)" d="M4,32c0,2.4,0.3,4.8,0.9,7l0,0l2.5-2.5C7.1,35,7,33.5,7,32C7,18.2,18.2,7,32,7 c13.8,0,25,11.2,25,25c0,1.5-0.1,3-0.4,4.5l2.5,2.5c0.6-2.2,0.9-4.6,0.9-7h0C60,16.5,47.5,4,32,4C16.5,4,4,16.5,4,32z"/>
+  <path opacity=".2" fill="#6C6C6C" d="M32,15c-9.4,0-17,7.6-17,17c0,4.7,1.9,8.9,5,12l24-24C40.9,16.9,36.7,15,32,15z"/>
+  <g>
+    <path fill="#A6A6AE" d="M23 37L24 40 30 40 31 37z"/>
+    <path fill="#808083" d="M41 37L31 37 30 40 40 40z"/>
+  </g>
+</svg>

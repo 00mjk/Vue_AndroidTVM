@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "TeleNeoWeb Bold";
+  src: local("TeleNeoWeb-Bold"),
+    url("~@/assets/fonts/TeleNeoWeb-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb BoldItalic";
+  src: local("TeleNeoWeb-BoldItalic"),
+    url("~@/assets/fonts/TeleNeoWeb-BoldItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "TeleNeoWeb ExtraBold";
+  src: local("TeleNeoWeb-ExtraBold"),
+    url("~@/assets/fonts/TeleNeoWeb-ExtraBold.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb ExtraBoldItalic";
+  src: local("TeleNeoWeb-ExtraBoldItalic"),
+    url("~@/assets/fonts/TeleNeoWeb-ExtraBoldItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb Medium";
+  src: local("TeleNeoWeb-Medium"),
+    url("~@/assets/fonts/TeleNeoWeb-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb MediumItalic";
+  src: local("TeleNeoWeb-MediumItalic"),
+    url("~@/assets/fonts/TeleNeoWeb-MediumItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb Regular";
+  src: local("TeleNeoWeb-Regular"),
+    url("~@/assets/fonts/TeleNeoWeb-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb RegularItalic";
+  src: local("TeleNeoWeb-RegularItalic"),
+    url("~@/assets/fonts/TeleNeoWeb-RegularItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb Thin";
+  src: local("TeleNeoWeb-Thin"),
+    url("~@/assets/fonts/TeleNeoWeb-Thin.woff") format("woff");
+}
+@font-face {
+  font-family: "TeleNeoWeb ThinItalic";
+  src: local("TeleNeoWeb-ThinItalic"),
+    url("~@/assets/fonts/TeleNeoWeb-ThinItalic.woff") format("woff");
+}
+
+$teleneo-bold: "TeleNeoWeb Bold";
+$teleneo-bold-italic: "TeleNeoWeb BoldItalic";
+$teleneo-extrabold: "TeleNeoWeb ExtraBold";
+$teleneo-extrabold-italic: "TeleNeoWeb ExtraBoldItalic";
+$teleneo-medium: "TeleNeoWeb Medium";
+$teleneo-medium-italic: "TeleNeoWeb MediumItalic";
+$teleneo-regular: "TeleNeoWeb Regular";
+$teleneo-regular-italic: "TeleNeoWeb RegularItalic";
+$teleneo-thin: "TeleNeoWeb Thin";
+$teleneo-thin-italic: "TeleNeoWeb ThinItalic";

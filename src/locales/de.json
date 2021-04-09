@@ -1,0 +1,21 @@
+{
+  "common": {
+    "close": "Schließen"
+  },
+  "widgetdashboard": {
+    "widget-section-title": "Widgets",
+    "scene-section-title": "Szenen",
+    "devices-section-title": "Geräte",
+    "explore-section-title": "Entdecken"
+  },
+  "feed": {
+    "title": "Feed"
+  },
+  "navigation": {
+    "home": "Zentrale",
+    "current": "Aktuelles",
+    "stories": "Stories",
+    "equipment": "Geräte",
+    "discover": "Entdecken"
+  }
+}
