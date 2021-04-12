@@ -1,10 +1,19 @@
 <template>
-  <div v-focus-section:addwidget class="fl-v-aic" style="overflow: auto; max-height: 100vh">
+  <div
+    v-focus-section:addwidget
+    class="fl-v-aic"
+    style="overflow: auto; max-height: 100vh"
+  >
     <h2>{{ message }}</h2>
 
     <div v-focus-section:addbutton class="edit-add">
       <div class="operation-buttons">
-        <div class="addBtn oval" v-focus v-on:click="navigateTo"></div>
+        <div
+          class="addBtn oval"
+          v-focus
+          @sn:enter-up="navigateTo"
+          v-on:click="navigateTo"
+        ></div>
       </div>
     </div>
 
@@ -13,11 +22,16 @@
     <h2 class="home_timeline_title" v-if="home_timelines.length">My Widgets</h2>
 
     <div class="d-flex box-wraper">
-      <component class="box" v-for="(comp, index) in selectedWidgets" v-bind:is="comp" :key="index"></component>
-    <!-- <TwitterBox/> -->
+      <component
+        class="box"
+        v-for="(comp, index) in selectedWidgets"
+        v-bind:is="comp"
+        :key="index"
+      ></component>
+      <!-- <TwitterBox/> -->
     </div>
 
-<!--     <h2 class="home_timeline_title" v-if="home_timelines.length">Twitter Timelines</h2>
+    <!--     <h2 class="home_timeline_title" v-if="home_timelines.length">Twitter Timelines</h2>
 
     <time-lines :items="home_timelines"></time-lines> -->
   </div>
@@ -33,7 +47,7 @@ import DogTracker from "@/components/items/DogTracker.vue";
 import router from "@/router/index";
 import twitter from "@/auths/twitterauth/twitter";
 import twiter_store from "@/auths/twitterauth/store";
-import  VTSApi from "@/api/VTSApi";
+import VTSApi from "@/api/VTSApi";
 
 let axios = require("axios");
 
@@ -41,20 +55,20 @@ export default {
   data() {
     return {
       home_timelines: [],
-      current_user: null
-    }
+      current_user: null,
+    };
   },
   components: {
     // TimeLines,
     // userInfo,
     TwitterBox,
-    DogTracker
+    DogTracker,
   },
   props: {
     message: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   computed: {
     feed() {
@@ -63,12 +77,9 @@ export default {
 
     selectedWidgets() {
       return this.$store.getters.selectedWidgets;
-    }
+    },
   },
-  async mounted() {
-    
-
-  },
+  async mounted() {},
   methods: {
     navigateTo() {
       router.push("appslist");
@@ -78,10 +89,9 @@ export default {
       await twitter.logout();
       this.home_timelines = [];
       this.current_user = null;
-    }
-  }
+    },
+  },
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -129,5 +139,4 @@ export default {
     background-color: $magenta-color;
   }
 }
-
-  </style>
+</style>

@@ -3,16 +3,16 @@
     <h2 style="justify-content: center; display:flex; color:white;">
       Scan QR Code to authenticate via Twitter
     </h2>
-    <div style=" justify-content: center; display:flex; flex-wrap: wrap;">
+    <div style=" justify-content: center; display:flex; flex-wrap: wrap; margin-top:50px;">
       <div
         style="justify-content: center; display:flex;  background-color:#FFFFFF"
         id="goqrcode"
       />
-      <img src="" id="qr" alt="" />
+      <img src="" id="qr" alt="" width="350" height="350" />
     </div>
-    <h3 style="justify-content: center; display:flex;">
+    <!-- <h3 style="justify-content: center; display:flex;">
       http://localhost:8080/twitter/auth
-    </h3>
+    </h3> -->
   </div>
 </template>
 
@@ -34,9 +34,22 @@ export default class TwitterLandPage extends Vue {
       var token = await localStorage.getItem("token");
       this.api.get_pol_result(token).then((res) => {
         if (res.data.oauth_token && res.data.oauth_token_secret) {
-          localStorage.setItem("oauth_token", res.data.oauth_token);
-          localStorage.setItem("oauth_verifier", res.data.oauth_token);
-          router.push("/");
+          // localStorage.setItem("oauth_token", decodeURIComponent("1369945584447066118-iloM4iRZFPnltzNSgGet2rYKoJ0m9T"));
+          // localStorage.setItem("oauth_verifier", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
+          // localStorage.setItem("oauth_token_secret", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
+          localStorage.setItem(
+            "oauth_token",
+            decodeURIComponent(res.data.oauth_token)
+          );
+          localStorage.setItem(
+            "oauth_verifier",
+            decodeURIComponent(res.data.oauth_token_secret)
+          );
+          localStorage.setItem(
+            "oauth_token_secret",
+            decodeURIComponent(res.data.oauth_token_secret)
+          );
+          window.location.href = "/";
         }
       });
     }, 3000);
@@ -49,7 +62,6 @@ export default class TwitterLandPage extends Vue {
   created() {}
   getAuth() {
     this.api.get_Polling().then((res) => {
-      console.log(res);
       this.authId = res.data.auth_id;
       localStorage.setItem("token", res.data.auth_id);
       this.pollData();

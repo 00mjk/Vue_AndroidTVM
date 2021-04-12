@@ -10,6 +10,7 @@
           class="col"
           :label="item.displayName"
           :icon="item.displayName.toLowerCase()"
+          :goto_url="'/twitter'"
           v-on:click.native="navigateTo(item.displayName,item.id)"
         />
 <!-- 
@@ -58,7 +59,7 @@ import VTSApi from "@/api/VTSApi";
 })
 export default class AppsList extends Vue {
   @Prop() message!: string;
-  @Prop() list!: undefined;
+  public list!: undefined;
   
     data(){
       return {
@@ -70,7 +71,6 @@ export default class AppsList extends Vue {
 
     let api=new VTSApi();
     api.get_widget().then((res)=>{
-      console.log(res);
       this.list=res.data.widgets
     });
 
@@ -79,7 +79,6 @@ export default class AppsList extends Vue {
 
 
   navigateTo(message: string, type: number) {
-    console.log("navigateTo called", type);
         router.push("/"+message.toLowerCase());
 
   //   switch (type) {
