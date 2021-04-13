@@ -5,6 +5,7 @@ import AppsList from '../views/AppsList.vue'
 import TwitterLandPage from '../components/twitter/TwitterLandPage.vue'
 import TwitterAuthentication from '../components/twitter/TwitterAuth.vue'
 import TwitterCallback from '../components/twitter/TwitterCallback.vue'
+import DogTrackerCallback from '../components/dogTracker/DogTrackerCallback.vue'
 import WidgetGallery from '../views/WidgetGallery.vue'
 
 Vue.use(VueRouter)
@@ -51,6 +52,11 @@ const routes: Array<RouteConfig> = [
     path: '/widget-gallery',
     name: 'WidgetGallery',
     component: WidgetGallery
+  },
+  {
+    path: '/dogtracker/callback',
+    name: 'DogTracker Callback',
+    component: DogTrackerCallback
   },
 ]
 

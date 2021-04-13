@@ -4,6 +4,7 @@ import Vue from "vue";
 class VTSApi {
 
     baseUrl: string = 'http://localhost:8080/api/v1/';
+    DogTrackUrl: string = 'https://api.tcl-move.com//v1.0/tps/';
     api = {
         login : {method:'post', url: 'auth/login', params: []},
         get_widget: {method:'get', url: 'widgets', params:[]},
@@ -11,8 +12,11 @@ class VTSApi {
         get_QRcode: {method:'get', url: 'auth', params:[]},
         get_Polling: {method:'post', url: 'auth', params:[]},
         get_Polling_res: {method:'get', url: 'auth', params:[]},
-     
         event: {method: 'post', url: 'event' , params: []},
+        //////
+        get_dog_authorize: {method:'get', url: 'oauth/authorize', params:[]},
+        post_dog_authorize: {method:'post', url: 'oauth/authorize', params:[]},
+        post_dog_token: {method:'post', url: 'oauth/token', params:[]},
     };
 
     public getConfig(apiCall:string, data : any, query : string = '') {
@@ -21,6 +25,17 @@ class VTSApi {
         return {
             method: apiMethod['method'],
             url: this.baseUrl + apiMethod['url'] + query,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+    }
+
+    public getDogTrackConfig(apiCall:string, data : any, query : string = '') {
+        let apiMethod = this.api[apiCall];
+        return {
+            method: apiMethod['method'],
+            url: this.DogTrackUrl + apiMethod['url'] + query,
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -64,6 +79,16 @@ class VTSApi {
         return axios(config);
     }
 
+    /////
+    public get_dog_authorize(client_id:any): Promise<any>{
+        let config = this.getDogTrackConfig('get_dog_authorize','','response_type=code/client_id=16173532589628348469/redirect_uri=http://localhost:8081/dogtracker/callback/scope=all/state=xyz');
+        return axios(config);
+    }
+
+    public post_dog_authorize(client_id:any): Promise<any>{
+        let config = this.getDogTrackConfig('post_dog_authorize','');
+        return axios(config);
+    }
 }
 
 export default VTSApi;
