@@ -28,12 +28,7 @@
         v-bind:is="comp"
         :key="index"
       ></component>
-      <!-- <TwitterBox/> -->
     </div>
-
-    <!--     <h2 class="home_timeline_title" v-if="home_timelines.length">Twitter Timelines</h2>
-
-    <time-lines :items="home_timelines"></time-lines> -->
   </div>
 </template>
 
@@ -59,8 +54,6 @@ export default {
     };
   },
   components: {
-    // TimeLines,
-    // userInfo,
     TwitterBox,
     DogTracker,
   },

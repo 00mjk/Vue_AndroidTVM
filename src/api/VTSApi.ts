@@ -7,13 +7,14 @@ class VTSApi {
     DogTrackUrl: string = 'https://api.tcl-move.com//v1.0/tps/';
     api = {
         login : {method:'post', url: 'auth/login', params: []},
+        event: {method: 'post', url: 'event' , params: []},
+
         get_widget: {method:'get', url: 'widgets', params:[]},
         post_auth:{method:'post', url: 'auth', params:[]},
-        get_QRcode: {method:'get', url: 'auth', params:[]},
+        twitter_get_QRcode: {method:'get', url: 'auth', params:[]},
         get_Polling: {method:'post', url: 'auth', params:[]},
-        get_Polling_res: {method:'get', url: 'auth', params:[]},
-        event: {method: 'post', url: 'event' , params: []},
-        //////
+        get_pol_result: {method:'get', url: 'auth', params:[]},
+   
         get_dog_authorize: {method:'get', url: 'oauth/authorize', params:[]},
         post_dog_authorize: {method:'post', url: 'oauth/authorize', params:[]},
         post_dog_token: {method:'post', url: 'oauth/token', params:[]},
@@ -65,20 +66,16 @@ class VTSApi {
         return axios(config);
     }
     
-    public get_QRcode(token:any) : Promise<any> {
-        let config = this.getConfig('get_QRcode','', `/${token}/qrcode`);
-        return axios(config);
-    }
-
-    public get_Polling() : Promise<any> {
-        let config = this.getConfig('get_Polling','');
+    public get_Polling(id:string) : Promise<any> {
+        let config = this.getConfig('get_Polling','', `?id=${id}`);
         return axios(config);
     }
     public get_pol_result(token:any) : Promise<any> {
-        let config = this.getConfig('get_Polling_res','',`/${token}/result`);
+        let config = this.getConfig('get_pol_result','',`/${token}/result`);
         return axios(config);
     }
 
+   
     /////
     public get_dog_authorize(client_id:any): Promise<any>{
         let config = this.getDogTrackConfig('get_dog_authorize','','response_type=code/client_id=16173532589628348469/redirect_uri=http://localhost:8081/dogtracker/callback/scope=all/state=xyz');

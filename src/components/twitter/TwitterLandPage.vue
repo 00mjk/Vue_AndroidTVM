@@ -1,7 +1,7 @@
 <template>
   <div class="fl-v-aic">
     <h2 style="justify-content: center; display:flex; color:white;">
-      Scan QR Code to authenticate via Twitter
+      Scan QR Code to authenticate via {{message}}
     </h2>
     <div style=" justify-content: center; display:flex; flex-wrap: wrap; margin-top:50px;">
       <div
@@ -20,11 +20,14 @@
 import VTSApi from "@/api/VTSApi";
 import router from "@/router/index";
 import auth_users from "@/store/auth_users";
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+
 const GoQrcode = require("go-qrcode");
 
 @Component
 export default class TwitterLandPage extends Vue {
+  public message!: any;
+
   public api = new VTSApi();
   public polling: number = 0;
   public authId;
@@ -59,9 +62,11 @@ export default class TwitterLandPage extends Vue {
     clearInterval(this.polling);
   }
 
-  created() {}
+  created() {
+    this.message = localStorage.getItem('current_id');
+  }
   getAuth() {
-    this.api.get_Polling().then((res) => {
+    this.api.get_Polling(this.message).then((res) => {
       this.authId = res.data.auth_id;
       localStorage.setItem("token", res.data.auth_id);
       this.pollData();

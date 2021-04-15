@@ -11,14 +11,14 @@ import vuetify from '@/plugins/vuetify';
 import vjsn from "vue-js-spatial-navigation";
 import i18n from "./i18n";
 import './index.css';
-
+import VueSession from 'vue-session'
 import store from "./store";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
-Vue.use(VWave, VueAxios, axios);
+Vue.use(VWave, VueAxios, axios, VueSession);
 
 const spatialCfg = {
   // straightOnly: false,

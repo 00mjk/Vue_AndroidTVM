@@ -32,6 +32,7 @@
     "vue-property-decorator": "^9.1.2",
     "vue-responsive-components": "^0.2.3",
     "vue-router": "^3.2.0",
+    "vue-session": "^1.0.0",
     "vuetify": "^2.4.8",
     "vuex": "^3.6.2",
     "vuex-class": "^0.3.2",

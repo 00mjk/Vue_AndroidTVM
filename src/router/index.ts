@@ -28,7 +28,7 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/twitter',
+    path: '/oauth',
     name: 'Twitter',
     component: TwitterLandPage,
     props: {

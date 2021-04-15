@@ -1,6 +1,6 @@
 <template>
   <div class="fl-v-aic">
-    <h2>{{ message }}</h2>
+    <h2>{{ title }}</h2>
 
     <v-container d-flex align="end" justify="start">
       <div class="d-flex">
@@ -9,11 +9,11 @@
           v-bind:key="item.id"
           class="col"
           :label="item.displayName"
-          :icon="item.displayName.toLowerCase()"
-          :goto_url="'/twitter'"
-          v-on:click.native="navigateTo(item.displayName,item.id)"
+          :icon="item.id.toLowerCase()"
+          :goto_url="'/oauth'"
+          v-on:click.native="navigateTo(item.displayName, item.id)"
         />
-<!-- 
+        <!-- 
         <ItemApp
           class="col"
           label="Facebook"
@@ -59,43 +59,38 @@ import VTSApi from "@/api/VTSApi";
 })
 export default class AppsList extends Vue {
   @Prop() message!: string;
-  public list!: undefined;
-  
-    data(){
-      return {
-        list:undefined
-      }
-    }
-    mounted() {
-    //do something
+  public list!: any[];
+  public title = "Available Apps";
+  public visited = [];
+  public itemlength = 0;
 
-    let api=new VTSApi();
-    api.get_widget().then((res)=>{
-      this.list=res.data.widgets
+  data() {
+    return {
+      list: [],
+    };
+  }
+  mounted() {
+    this.visited = this.$store.getters.visited;
+    let api = new VTSApi();
+    api.get_widget().then((res) => {
+      res.data.widgets.forEach((widget: any) => {
+        if (!this.visited.find((element) => element == widget.id)) {
+          this.list.push(widget);
+          this.itemlength++;
+        }
+      });
+      this.title = this.list.length > 0 ? "Available Apps" : "No more widgets to add";
     });
-
-
   }
 
-
-  navigateTo(message: string, type: number) {
-        router.push("/"+message.toLowerCase());
-
-  //   switch (type) {
-  //     case 0: //DogTracker
-  //       break;
-  //     case 1: //Facebook
-  //       break;
-  //     case 2: //Twitter
-  //       router.push("/twitter");
-  //       break;
-  //     case 3: //Google
-  //       break;
-  //     case 4: //Email
-  //       break;
-  //   }
-   }
-
+  navigateTo(message: string, id: string) {
+    // router.push("/" + id.toLowerCase());
+    this.visited = this.$store.getters.visited;
+    if (!this.visited.find((data) => data == id))
+      this.$store.dispatch("setVisited", id);
+    localStorage.setItem("current_id", id);
+    router.push("/oauth");
+  }
 }
 </script>
 

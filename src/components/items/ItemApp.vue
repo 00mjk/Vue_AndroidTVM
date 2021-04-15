@@ -2,7 +2,7 @@
   <div class="item-wrap" v-focus-section v-bind:class="{ 'no-style': noStyle }">
     <div class="item-inner">
       <div class="clickme" v-focus @sn:enter-up="goTo(goto_url)"  :style="{ color }" v-wave>
-          <div style="display: flex; justify-content: space-between; font-size:40px; padding-top:25px; margin-bottom: 80px;">
+          <div style="display: flex; justify-content: space-between; font-size:40px; padding-top:25px; margin-bottom: 70px;">
             <i v-bind:class="[activeClass, errorClass]" aria-hidden="true" style="align-items: flex-start;"></i>
           </div>
           <div style="display: flex; justify-content: space-between;">
@@ -44,8 +44,8 @@ export default class ItemApp extends Vue {
   @Prop()
   goto_url!: string;
   
-  public activeClass = this.icon == "dog" || this.icon == "envelope"  ? "fa" : 'fab'
-  public errorClass = 'fa-' + this.icon
+  public activeClass = this.icon == "movetrack" || this.icon == "envelope"  ? "fa" : 'fab'
+  public errorClass = this.icon == "movetrack" ? 'fa-dog' :'fa-' + this.icon
 
   goTo() {
     if(this.goto_url.length > 0)
