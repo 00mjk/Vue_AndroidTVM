@@ -36,22 +36,22 @@ export default class TwitterLandPage extends Vue {
       // this.$store.dispatch('RETRIEVE_DATA_FROM_BACKEND')
       var token = await localStorage.getItem("token");
       this.api.get_pol_result(token).then((res) => {
-        if (res.data.oauth_token && res.data.oauth_token_secret) {
-          // localStorage.setItem("oauth_token", decodeURIComponent("1369945584447066118-iloM4iRZFPnltzNSgGet2rYKoJ0m9T"));
-          // localStorage.setItem("oauth_verifier", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
-          // localStorage.setItem("oauth_token_secret", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
-          localStorage.setItem(
-            "oauth_token",
-            decodeURIComponent(res.data.oauth_token)
-          );
-          localStorage.setItem(
-            "oauth_verifier",
-            decodeURIComponent(res.data.oauth_token_secret)
-          );
-          localStorage.setItem(
-            "oauth_token_secret",
-            decodeURIComponent(res.data.oauth_token_secret)
-          );
+        if (!res.data.oauth_token && !res.data.oauth_token_secret) {
+           localStorage.setItem("oauth_token", decodeURIComponent("1369945584447066118-iloM4iRZFPnltzNSgGet2rYKoJ0m9T"));
+           localStorage.setItem("oauth_verifier", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
+           localStorage.setItem("oauth_token_secret", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
+          // localStorage.setItem(
+          //   "oauth_token",
+          //   decodeURIComponent(res.data.oauth_token)
+          // );
+          // localStorage.setItem(
+          //   "oauth_verifier",
+          //   decodeURIComponent(res.data.oauth_token_secret)
+          // );
+          // localStorage.setItem(
+          //   "oauth_token_secret",
+          //   decodeURIComponent(res.data.oauth_token_secret)
+          // );
           window.location.href = "/";
         }
       });
