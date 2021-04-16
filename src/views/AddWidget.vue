@@ -6,6 +6,8 @@
   >
     <h2>{{ message }}</h2>
 
+    <!-- <pulse-loader :loading="loading" :color="color" :size="size" style="margin-top:20px; margin-bottom:20px;"></pulse-loader> -->
+
     <div v-focus-section:addbutton class="edit-add">
       <div class="operation-buttons">
         <div
@@ -16,10 +18,6 @@
         ></div>
       </div>
     </div>
-
-    <!-- <user-info @onLogout="twiterLogout" :user="current_user" ></user-info> -->
-
-    <h2 class="home_timeline_title" v-if="home_timelines.length">My Widgets</h2>
 
     <div class="d-flex box-wraper">
       <component
@@ -34,15 +32,14 @@
 
 <script>
 import { Component, Prop, PropSync, Ref, Vue } from "vue-property-decorator";
-// import userInfo from "@/components/twitter/userInfo.vue";
-import TwitterBox from "@/components/twitter/Box.vue";
-import DogTracker from "@/components/items/DogTracker.vue";
-// import TimeLines from "@/components/twitter/TimeLines.vue";
+import Twitter from "@/components/twitter/Box.vue";
+import DogTracker from "@/components/dogTracker/DogTracker.vue";
+import Github from "@/components/Github/Github.vue";
 
 import router from "@/router/index";
 import twitter from "@/auths/twitterauth/twitter";
-import twiter_store from "@/auths/twitterauth/store";
-import VTSApi from "@/api/VTSApi";
+
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 
 let axios = require("axios");
 
@@ -51,11 +48,19 @@ export default {
     return {
       home_timelines: [],
       current_user: null,
+      //for spinner
+      color: "#51becb",
+      color1: "#5bc0de",
+      size: "30px",
+      margin: "2px",
+      radius: "2px",
     };
   },
   components: {
-    TwitterBox,
+    Twitter,
     DogTracker,
+    Github,
+    PulseLoader,
   },
   props: {
     message: {

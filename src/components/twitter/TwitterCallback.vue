@@ -19,8 +19,8 @@ export default class TwitterCallback extends Vue {
     if (QueryString) {
       var queryObj = QueryString as any;
       if (queryObj.oauth_token && queryObj.oauth_verifier) {
-        localStorage.setItem('oauth_token', queryObj.oauth_token);
-        localStorage.setItem('oauth_verifier', queryObj.oauth_verifier);
+        sessionStorage.setItem('oauth_token', queryObj.oauth_token);
+        sessionStorage.setItem('oauth_verifier', queryObj.oauth_verifier);
       }
     }
 

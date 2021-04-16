@@ -13,15 +13,15 @@ cb.setConsumerKey("XpIvxPsGknYOk8N8RZnKxq7hc", "cyAoh4cYBk33Rn0Ixeho1qv76XmYJN3L
 
 var oauth_token = QueryString.oauth_token;
 var oauth_verifier = QueryString.oauth_verifier;
-// localStorage.clear();
+// sessionStorage.clear();
 
 function saveTokens(oauth_token, oauth_token_secret) {
-    localStorage.setItem('oauth_token', oauth_token);
-    localStorage.setItem('oauth_token_secret', oauth_token_secret);
+    sessionStorage.setItem('oauth_token', oauth_token);
+    sessionStorage.setItem('oauth_token_secret', oauth_token_secret);
 }
 
 if (oauth_token && oauth_verifier) {
-    cb.setToken(localStorage.getItem('oauth_token'), localStorage.getItem('oauth_token_secret'));
+    cb.setToken(sessionStorage.getItem('oauth_token'), sessionStorage.getItem('oauth_token_secret'));
 
     cb.__call(
         "oauth_accessToken",
@@ -44,11 +44,11 @@ if (oauth_token && oauth_verifier) {
 }
 else {
     
-    if (!localStorage.getItem('oauth_token') || !localStorage.getItem('oauth_token_secret')) {
+    if (!sessionStorage.getItem('oauth_token') || !sessionStorage.getItem('oauth_token_secret')) {
         document.addEventListener('DOMContentLoaded', () => { window.f7.loginScreen(); });
     }
     else {
-        cb.setToken(localStorage.getItem('oauth_token'), localStorage.getItem('oauth_token_secret'));
+        cb.setToken(sessionStorage.getItem('oauth_token'), sessionStorage.getItem('oauth_token_secret'));
         // cb.__call(
         //     "statuses_homeTimeline",
         //     {},
@@ -138,7 +138,15 @@ twitter.account_verify_credentials = function (data) {
 }
 
 twitter.logout = function () {
-  localStorage.removeItem('oauth_verifier');
+  sessionStorage.removeItem('oauth_verifier');
+  let visited_list = sessionStorage.getItem("visited_list") + " ";
+  let araray_visit = visited_list.split(" ");
+  let session_visit = "";
+  araray_visit.forEach((array) => {
+    if (array != "twitter") session_visit += " " + array;
+  });
+  sessionStorage.removeItem("visited_list");
+  sessionStorage.setItem("visited_list", session_visit);
   twiter_store.account_verify_credentials = null;
   twiter_store.tweets.length = 0;
 }

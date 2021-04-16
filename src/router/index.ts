@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import AddWidget from '../views/AddWidget.vue'
 import AppsList from '../views/AppsList.vue'
-import TwitterLandPage from '../components/twitter/TwitterLandPage.vue'
+import OauthCheckPage from '../components/OauthCheckPage.vue'
 import TwitterAuthentication from '../components/twitter/TwitterAuth.vue'
 import TwitterCallback from '../components/twitter/TwitterCallback.vue'
 import DogTrackerCallback from '../components/dogTracker/DogTrackerCallback.vue'
@@ -30,7 +30,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/oauth',
     name: 'Twitter',
-    component: TwitterLandPage,
+    component: OauthCheckPage,
     props: {
       message: "Twitter"
     }

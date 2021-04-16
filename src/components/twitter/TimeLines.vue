@@ -84,7 +84,7 @@
     computed: {
     },
     async mounted() {
-      let oauth_verifier = await localStorage.getItem('oauth_verifier');
+      let oauth_verifier = await sessionStorage.getItem('oauth_verifier');
       if(oauth_verifier) {
         await twitter.account_verify_credentials();
         this.current_user = twiter_store.account_verify_credentials;

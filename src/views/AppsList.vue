@@ -62,33 +62,28 @@ export default class AppsList extends Vue {
   public list!: any[];
   public title = "Available Apps";
   public visited = [];
-  public itemlength = 0;
-
   data() {
     return {
       list: [],
     };
   }
   mounted() {
-    this.visited = this.$store.getters.visited;
+    let visited_list = sessionStorage.getItem("visited_list") +" ";
     let api = new VTSApi();
     api.get_widget().then((res) => {
       res.data.widgets.forEach((widget: any) => {
-        if (!this.visited.find((element) => element == widget.id)) {
+       if (visited_list.search(widget.id) == -1) {
           this.list.push(widget);
-          this.itemlength++;
         }
       });
-      this.title = this.list.length > 0 ? "Available Apps" : "No more widgets to add";
+      this.title =
+        this.list.length > 0 ? "Available Apps" : "No more widgets to add";
     });
   }
 
   navigateTo(message: string, id: string) {
     // router.push("/" + id.toLowerCase());
-    this.visited = this.$store.getters.visited;
-    if (!this.visited.find((data) => data == id))
-      this.$store.dispatch("setVisited", id);
-    localStorage.setItem("current_id", id);
+    sessionStorage.setItem("current_id", message);
     router.push("/oauth");
   }
 }
