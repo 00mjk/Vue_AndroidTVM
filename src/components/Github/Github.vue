@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       github_ckeck: false,
-      item: {},
+      item: null,
     };
   },
   components: {},
@@ -87,6 +87,7 @@ export default {
       });
       octokit.request("GET /user").then((response) => {
         self.item = response.data;
+        this.$store.dispatch("loading_check", false);
       });
     }
   },

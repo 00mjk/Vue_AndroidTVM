@@ -6,7 +6,12 @@
   >
     <h2>{{ message }}</h2>
 
-    <!-- <pulse-loader :loading="loading" :color="color" :size="size" style="margin-top:20px; margin-bottom:20px;"></pulse-loader> -->
+    <clip-loader
+      :loading="loading"
+      :color="color"
+      :size="size"
+      style="margin-top:20px; margin-bottom:20px;"
+    ></clip-loader>
 
     <div v-focus-section:addbutton class="edit-add">
       <div class="operation-buttons">
@@ -33,13 +38,13 @@
 <script>
 import { Component, Prop, PropSync, Ref, Vue } from "vue-property-decorator";
 import Twitter from "@/components/twitter/Box.vue";
-import DogTracker from "@/components/dogTracker/DogTracker.vue";
+import Movetrack from "@/components/dogTracker/DogTracker.vue";
 import Github from "@/components/Github/Github.vue";
 
 import router from "@/router/index";
 import twitter from "@/auths/twitterauth/twitter";
 
-import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import ClipLoader from "vue-spinner/src/ClipLoader.vue";
 
 let axios = require("axios");
 
@@ -49,18 +54,18 @@ export default {
       home_timelines: [],
       current_user: null,
       //for spinner
-      color: "#51becb",
-      color1: "#5bc0de",
-      size: "30px",
+      color: "#ffffff",
+      color1: "#ffffff",
+      size: "45px",
       margin: "2px",
       radius: "2px",
     };
   },
   components: {
     Twitter,
-    DogTracker,
+    Movetrack,
     Github,
-    PulseLoader,
+    ClipLoader,
   },
   props: {
     message: {
@@ -68,6 +73,7 @@ export default {
       default: "",
     },
   },
+
   computed: {
     feed() {
       return this.$store.getters.feed;
@@ -76,8 +82,16 @@ export default {
     selectedWidgets() {
       return this.$store.getters.selectedWidgets;
     },
+
+    loading() {
+      return this.$store.getters.loading_check;
+    },
   },
-  async mounted() {},
+
+  mounted() {
+    if(sessionStorage.getItem('visited_list'))
+      this.$store.dispatch("loading_check", true);
+  },
   methods: {
     navigateTo() {
       router.push("appslist");

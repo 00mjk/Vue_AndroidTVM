@@ -89,11 +89,14 @@ export default {
   async mounted() {
     let oauth_verifier = await sessionStorage.getItem("oauth_verifier");
     if (oauth_verifier) {
+      
       await twitter.home_timeline();
       this.items = twiter_store.tweets;
 
       await twitter.account_verify_credentials();
       this.user = twiter_store.account_verify_credentials;
+      
+      this.$store.dispatch("loading_check", false);
     }
   },
   methods: {

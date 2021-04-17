@@ -1,8 +1,9 @@
 const state = () => {
   return {
     tweetUser: null,
-    selectedWidgets: ['twitter', 'dog-tracker', 'github'],
-    visited: []
+    selectedWidgets: ['twitter', 'movetrack', 'github'],
+    visited: [],
+    loading_check: false,
   }
 };
 
@@ -15,6 +16,9 @@ const getters = {
   },
   visited(state){
     return state.visited;
+  },
+  loading_check(state){
+    return state.loading_check;
   }
 };
 
@@ -35,7 +39,10 @@ const actions = {
     commit('removeSelectedWidget', newValue);
     return state.selectedWidgets;
   },
-  // other actions
+  loading_check: ({commit, state}, newValue) => {
+    commit('loading_check', newValue);
+    return state.loading_check;
+  },
 };
 
 const mutations = {
@@ -62,7 +69,11 @@ const mutations = {
 
   setVisited(state, data){
     state.visited.push(data);
-  }
+  },
+
+  loading_check(state, data){
+    state.loading_check  = data;
+  },
 };
 
 

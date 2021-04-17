@@ -83,7 +83,8 @@ export default class AppsList extends Vue {
 
   navigateTo(message: string, id: string) {
     // router.push("/" + id.toLowerCase());
-    sessionStorage.setItem("current_id", message);
+    sessionStorage.setItem("current_name", message);
+    sessionStorage.setItem("current_id", id);
     router.push("/oauth");
   }
 }

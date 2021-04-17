@@ -1,9 +1,11 @@
 <template>
   <div class="fl-v-aic">
-    <h2 style="justify-content: center; display:flex; color:white;">
-      Launch the camera app on your phone and scan the QR code icon to add
-      {{ message }}
-    </h2>
+    <center>
+      <h2 style="color:white;">
+        Launch the camera app on your phone
+      </h2>
+      <h2>and scan the QR code icon to add {{ message }}</h2>
+    </center>
     <div
       style=" justify-content: center; display:flex; flex-wrap: wrap; margin-top:50px;"
     >
@@ -30,6 +32,7 @@ const GoQrcode = require("go-qrcode");
 @Component
 export default class OauthCheckPage extends Vue {
   public message!: any;
+  public current_id!: any;
   public api = new VTSApi();
   public polling: number = 0;
   public authId;
@@ -58,15 +61,45 @@ export default class OauthCheckPage extends Vue {
       // sessionStorage.setItem("github_oauth_token_type", "bearer");
       // router.push("/");
       this.api.get_pol_result(token).then((res) => {
+        //MovTrack
+        if (
+          res.data.oauth_token_type == "Bearer" &&
+          res.data.oauth_token &&
+          this.current_id == "movetrack"
+        ) {
+          sessionStorage.setItem("movetrack_oauth_token", res.data.oauth_token);
+          sessionStorage.setItem(
+            "movetrack_oauth_token_type",
+            res.data.oauth_token_type
+          );
+
+          let visited_list = sessionStorage.getItem("visited_list") + " ";
+          if (visited_list.search("movetrack") == -1) {
+            visited_list = visited_list + "movetrack";
+            sessionStorage.setItem("visited_list", visited_list);
+          }
+          this.$store.dispatch("loading_check", true);
+          // router.push("/");
+        }
+
         //Github
-        if (res.data.oauth_token_type == "bearer" && res.data.oauth_token) {
+        if (
+          res.data.oauth_token_type == "bearer" &&
+          res.data.oauth_token &&
+          this.current_id == "github"
+        ) {
           // sessionStorage.setItem(
           //   "oauth_token",
           //   "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"
           // );
           // sessionStorage.setItem("oauth_token_type", "bearer");
 
-          sessionStorage.setItem("github_oauth_token", res.data.oauth_token);
+          // sessionStorage.setItem("github_oauth_token", res.data.oauth_token);
+          sessionStorage.setItem(
+            "github_oauth_token",
+            "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"
+          );
+
           sessionStorage.setItem(
             "github_oauth_token_type",
             res.data.oauth_token_type
@@ -77,11 +110,12 @@ export default class OauthCheckPage extends Vue {
             visited_list = visited_list + "github";
             sessionStorage.setItem("visited_list", visited_list);
           }
+          this.$store.dispatch("loading_check", true);
           router.push("/");
         }
 
         //Twitter
-        if (res.data.oauth_token && res.data.oauth_token_secret) {
+        if (res.data.oauth_token && res.data.oauth_token_secret && this.current_id == "twitter") {
           //   sessionStorage.setItem("oauth_token", decodeURIComponent("1369945584447066118-iloM4iRZFPnltzNSgGet2rYKoJ0m9T"));
           //   sessionStorage.setItem("oauth_verifier", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
           //   sessionStorage.setItem("oauth_token_secret", decodeURIComponent("eacDWRLMzIoN8RljZz7rMqsv6DnVfBydHmOXgb7BWP2DV"));
@@ -103,7 +137,8 @@ export default class OauthCheckPage extends Vue {
             visited_list = visited_list + "twitter";
             sessionStorage.setItem("visited_list", visited_list);
           }
-          router.push("/");
+          this.$store.dispatch("loading_check", true);
+          window.location.href = "/";
         }
       });
     }, 3000);
@@ -114,10 +149,11 @@ export default class OauthCheckPage extends Vue {
   }
 
   created() {
-    this.message = sessionStorage.getItem("current_id");
+    this.message = sessionStorage.getItem("current_name");
+    this.current_id = sessionStorage.getItem("current_id");
   }
   getAuth() {
-    this.api.get_Polling(this.message.toLowerCase()).then((res) => {
+    this.api.get_Polling(this.current_id).then((res) => {
       this.authId = res.data.auth_id;
       sessionStorage.setItem("token", res.data.auth_id);
       this.pollData();
